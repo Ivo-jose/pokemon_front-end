@@ -1,10 +1,25 @@
 <template>
-
+    <div>
+        <h1>{{ index }} - {{ upper(name) }}</h1>
+        <small>{{ url }}</small>
+        <hr>
+    </div>
 </template>
 
 <script>
     export default {
+        props: {
+            index: Number,
+            name: String,
+            url: String
+        },
 
+        methods: {
+            upper: function (value) {
+                let newName =  value[0].toUpperCase() + value.slice(1);
+                return newName;
+            }
+        }
     }
 </script>
 
