@@ -1,11 +1,15 @@
-<script setup>
-</script>
-
 <template>
     <div class="wrapper">
-      <h1>Teste</h1>
+      <h1 class="title is-1">Teste</h1>
     </div>
 </template>
+
+<script>
+import axios from 'axios';
+export default {
+  name: 'App'
+}
+</script>
 
 <style scoped>
 .wrapper {
