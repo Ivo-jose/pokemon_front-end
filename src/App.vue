@@ -1,6 +1,8 @@
 <template>
-    <div class="wrapper">
-      <h1 class="title is-1">Teste</h1>
+    <div class="">
+      <div v-for="(poke,index) in pokemons" :key="index">
+          <h1>{{ index + 1 }}-{{ poke.name}} --- {{ poke.url }}</h1>
+      </div>
     </div>
 </template>
 
@@ -18,14 +20,10 @@ export default {
       console.log('Pegou a lista de pokemon');
       this.pokemons = res.data.results;   
     })
-  }
+  }, 
 }
 </script>
 
 <style scoped>
-.wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-}
+
 </style>
