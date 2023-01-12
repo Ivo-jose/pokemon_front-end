@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div class="container column is-half is-offset-one-quarter">
       <div v-for="(poke,index) in pokemons" :key="index">
           <Pokemon :name="poke.name" :url="poke.url" :index="index + 1"></Pokemon>
       </div>

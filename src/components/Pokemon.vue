@@ -1,8 +1,36 @@
 <template>
-    <div>
-        <h1>{{ index }} - {{ upper(name) }}</h1>
-        <small>{{ url }}</small>
+    <div class="mt-6 p-6">
+        <h1 class="title is-1">{{ index }} - {{ upper(name) }}</h1>
         <hr>
+        <div class="card card-shadow card-radius">
+        <div class="card-image has-background-primary-light">
+            <div id="imagem">
+                <figure>
+                    <img :src="pokemon.front" alt="Placeholder image">
+                </figure>
+            </div>
+        </div>
+        <div class="card-content">
+            <div class="media">
+                <div class="media-left has-background-primary-light">
+                    <figure class="image is-96x96">
+                    <img :src="pokemon.back" alt="Placeholder image">
+                    </figure>
+                </div>
+                <div class="media-content">
+                    <p class="title is-4">{{ upper(name) }}</p>
+                    <p class="subtitle is-4 mb-1"><strong>Tipo:</strong> {{ pokemon.type }}</p>
+                    <p class="subtitle is-6"><strong>Url:</strong> {{ url }}</p>
+                </div>
+            </div>
+
+            <div class="content">
+                
+            </div>
+        </div>
+        <hr>
+</div>
+
     </div>
 </template>
 
@@ -20,7 +48,10 @@
         data() {
             return {
                 pokemon: {
-
+                    type: '',
+                    front: '',
+                    back: '',
+                    abilities: []
                 }
             }
         },
@@ -39,5 +70,17 @@
 </script>
 
 <style>
+img {
+    height: 300px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+}
 
+#imagem {
+    margin: 0 auto;
+    height: 310px;
+    width: 310px;
+    padding: 5px;
+}
 </style>
