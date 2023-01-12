@@ -1,5 +1,12 @@
 <template>
-    <div class="container column is-half is-offset-one-quarter">
+    <div class="container">
+      <div id="info">
+          <h1 class="title is-1 has-text-danger">Sobre Pokémons</h1>
+          <p class="has-text-danger title is-4">
+            Este é seu site de informações rápidas sobre seus Pokémons preferidos! Saiba qual é o tipo e suas possíveis evoluções.
+          </p>
+      </div>
+
       <div v-for="(poke,index) in pokemons" :key="index">
           <Pokemon :name="poke.name" :url="poke.url" :index="index + 1"></Pokemon>
       </div>
@@ -31,5 +38,8 @@ export default {
 </script>
 
 <style scoped>
-
+#info {
+  width: 480px;
+  padding-top: 100px;
+}
 </style>

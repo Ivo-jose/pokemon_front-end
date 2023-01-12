@@ -1,6 +1,6 @@
 <template>
-    <div class="mt-6 p-6">
-        <h1 class="title is-1">{{ index }} - {{ upper(name) }}</h1>
+    <div id="caixa" class="mt-6 p-6">
+        <h1 class="title is-3 has-text-danger">{{ index }} - {{ upper(name) }}</h1>
         <hr>
         <div class="card card-shadow card-radius">
         <div class="card-image has-background-primary-light">
