@@ -1,8 +1,21 @@
 <template>
-    <div class="container">
+   <nav id="topo" class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item">
+        <img id="logo" src="./assets/International_Pokémon_logo.svg.png" alt="Pokémon" >
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  </nav>
+    <div class="container" id="caixa">
       <div id="info">
-          <h1 class="title is-1 has-text-danger">Sobre Pokémons</h1>
-          <p class="has-text-danger title is-4">
+          <h1 class="title is-3 has-text-danger">Sobre Pokémons</h1>
+          <p class="has-text-danger title is-5">
             Este é seu site de informações rápidas sobre seus Pokémons preferidos! Saiba qual é o tipo e suas possíveis evoluções.
           </p>
       </div>
@@ -41,7 +54,7 @@ export default {
     })
   }, 
   components: {
-    Pokemon
+    Pokemon,
   },
 
   methods: {
@@ -75,7 +88,7 @@ export default {
 <style scoped>
 #info {
   width: 480px;
-  padding-top: 100px;
+  padding-top: 300px;
 }
 
 #search {
@@ -87,4 +100,15 @@ export default {
 #btnBusca {
   margin-top: 15px;
 }
+
+#topo {
+  height: 150px;
+  background: rgba(0, 0, 255, 0.378);
+  position: fixed;
+  top: 0;
+  left: 0; 
+  width: 100%;
+}
+
+
 </style>
