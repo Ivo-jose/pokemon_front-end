@@ -44,7 +44,6 @@
                 this.pokemon.back = res.data.sprites.back_default; 
                 this.currentImgFront = this.pokemon.front;
                 this.currentImgBack = this.pokemon.back
-                console.log(this.pokemon);
             })
         },
         data() {
@@ -86,7 +85,7 @@
                     this.currentImgBack = this.pokemon.back;
                 }
             },  
-        }
+        },
     }
 </script>
 

@@ -7,7 +7,13 @@
           </p>
       </div>
 
-      <div v-for="(poke,index) in pokemons" :key="index">
+      <div id="search">
+          <label for="pokemon" class="label has-text-danger">Pesquisar por Pokémon</label>
+          <input v-model="busca" type="text" name="pokemon" id="pokemon" class="input is-danger" placeholder="Entre com o nome do pokemon" >
+          <button class="button is-fullwidth is-rounded is-danger" id="btnBusca"  @click="buscar">Pesquisar</button>
+      </div>
+
+      <div v-for="(poke,index) in filteredPokemons" :key="poke.url">
           <Pokemon :name="poke.name" :url="poke.url" :index="index + 1"></Pokemon>
       </div>
     </div>
@@ -23,16 +29,45 @@ export default {
   data() {
     return {
       pokemons: [],
+      filteredPokemons: [],
+      busca: '',
     }
   },
   created: function() {
     axios.get('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0').then(res => {
       console.log('Pegou a lista de pokemon');
       this.pokemons = res.data.results;   
+      this.filteredPokemons = res.data.results;
     })
   }, 
   components: {
     Pokemon
+  },
+
+  methods: {
+    buscar: function() {
+      this.filteredPokemons = this.pokemons;
+      if(this.busca == '' || this.busca == ' ' || this.busca == undefined){
+        this.filteredPokemons = this.pokemons;
+      }
+      else {
+        this.busca = this.busca.toLocaleLowerCase();
+        this.busca = this.busca.trim();
+        this.filteredPokemons = this.pokemons.filter(poke =>  poke.name === this.busca);
+        console.log(this.filteredPokemons);
+      }
+    }
+  },  
+
+  computed: {
+   /*  resultadoBusca: function() {
+      if(this.busca == '' || this.busca == ' '){
+        return this.pokemons;
+      }
+      else {
+        return this.pokemons.filter(pokemons => pokemons.name == this.busca);
+      }
+    } */
   }
 }
 </script>
@@ -41,5 +76,15 @@ export default {
 #info {
   width: 480px;
   padding-top: 100px;
+}
+
+#search {
+  background-color: none;
+  padding: 20px;
+  width: 480px;
+}
+
+#btnBusca {
+  margin-top: 15px;
 }
 </style>
